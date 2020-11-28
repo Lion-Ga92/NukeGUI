@@ -1,0 +1,72 @@
+import tkinter as tk
+import time
+
+
+#first_round = dialogues()
+#first_round.dialogue_one()
+def dialogue_one():
+    Txt_main.insert("1.0", "+++++++++++++++++++++++++++\n")
+    time.sleep(2)
+    Txt_main.insert("2.0", "++++++++++++++++++++++++++++++++\n")
+    time.sleep(2)
+    Txt_main.insert("3.0", "+++++++++++++++++++++++++++++++++++++++\n")
+    time.sleep(2)
+    Txt_main.insert("4.0", "+++++++++++++++++++=====+++++++++++++++++++++\n")
+    time.sleep(2)
+    Txt_main.insert("5.0", "==COMMAND ACCESS NETWORK SECURE SERVER==\n")
+    time.sleep(1)
+    Txt_main.insert("6.0", "== +ALERT+ ACCESS TO THIS STATION HAS BEEN DETECTED, PERMISSION QUERY WILL FOLLOW +ALERT+==")
+    time.sleep(1)
+    Txt_main.insert("7.0", "\nHostile intrusion to this system has been detected, delayanced protocols have been initiated")
+    time.sleep(1)
+    Txt_main.insert("8.0", "There are only three allowed users to this computer, their names are:\n")
+    time.sleep(1)
+    Txt_main.insert("9.0", "[Luis], [Dania], [Zach], please type exactly as presented by the C-A-N\n")
+    time.sleep(3)
+    Txt_main.insert("10.0", "Click bypass button to load Bypass....\n")
+
+def Bypass_func():
+     time.sleep(3)
+     Txt_main.insert("11.0", "&%^*^(&(^$!@#$%^&*\n")
+     time.sleep(3)
+     Txt_main.insert("12.0", "*&*%^#$%&^*&(**&^%$@#%^&**^^$%\n")
+     time.sleep(3)
+     Txt_main.insert("13.0", "$%^&*()*&^%$#@%^&*(&^%$#@%^&*(^%$#@!$%^&*(\n")
+
+window= tk.Tk()
+window.title("NUCLEAR LAUNCH CODES SIMULATOR")
+frame_a = tk.Frame(master=window)
+frame_a.pack()
+frame_b = tk.Frame(master=window, bg="red")
+frame_b.pack()
+frame_c = tk.Frame(master=window, bg="red")
+frame_c.pack()
+frame_d = tk.Frame(master=window, bg="red")
+frame_d.place(x=920, y=878)
+frame_e = tk.Frame(master=window, bg="red")
+frame_e.place(x=920, y=928)
+
+lbl_CAN = tk.Label(master=frame_a, text="#####COMMAND ACCESS NETWORK#####", fg="white", bg="Black")
+lbl_CAN.pack()
+lbl_Pelot = tk.Label(master=frame_a, text="*LA PELOTA PRE-ARMING SEQUENCE*", fg="white", bg="Dimgray")
+lbl_Pelot.pack()
+Txt_main = tk.Text(master=frame_b, bg="Orange", fg="white")
+Txt_main.pack(padx=40, pady=15)
+
+ENT_fordata = tk.Entry(master=frame_c, bg="Gainsboro")
+ENT_fordata.pack(padx=50, pady=10)
+
+Ent_bttn = tk.Button(master=frame_c,text="Enter", width=6, )
+Ent_bttn.pack(padx=10, pady=10)
+
+Bttn_one = tk.Button(master=frame_d, text="1", width=3, height=1, fg="red", bg="yellow")
+Bttn_two = tk.Button(master=frame_d, text="2", width=3, height=1, fg="red", bg="yellow")
+Bttn_three = tk.Button(master=frame_d, text="3",width=3, height=1, fg="red", bg="yellow")
+Bttn_one.grid(row=1, column=1)
+Bttn_two.grid(row=1, column=2)
+Bttn_three.grid(row=1, column=3)
+Bttn_bypass = tk.Button(master=frame_e, text="bypass", command=Bypass_func, fg="red", bg="yellow")
+Bttn_bypass.pack()
+
+dialogue_one()
+window.mainloop()
