@@ -1,4 +1,5 @@
 import tkinter as tk
+from NukeClasses import GUI_pre_arm1
 import random
 
 class GUI_app:
@@ -6,7 +7,7 @@ class GUI_app:
         self.root = root
 
 
-    def GUI_outlay(self):
+    def GUI_outlay(self, root):
         self.root= tk.Tk()
         self.root.title("NUCLEAR LAUNCH CODES SIMULATOR")
         self.frame_a = tk.Frame(master=self.root)
@@ -106,7 +107,11 @@ class GUI_app:
 
             else:
                 self.Text_main.insert(tk.END, "fuck off")
-                self.root.destroy()
+            
+        def Launch_pre_arm():
+            self.root.destroy()
+
+
 
         self.ENT_fordata = tk.Entry(master=self.frame_c, state="normal", bg="Gainsboro")
         self.ENT_fordata.pack(padx=50, pady=15)
@@ -120,7 +125,13 @@ class GUI_app:
         self.Bttn_input.pack()
         self.root.mainloop()
 
-main_game = GUI_app("root")
-main_game.GUI_outlay()
+def launch_order():
+    main_game = GUI_app("root")
+    main_game.GUI_outlay("rooot")
+    sec_Wind = GUI_pre_arm1("win2")
+    sec_Wind.GUI2_outlay(window2=tk.Toplevel())
+
+launch_order()
+
 
 
