@@ -2,40 +2,8 @@ import tkinter as tk
 
 
 class GUI_app:
-
-    def __init__(self, root, Text_main):
-        self.root = root
-        self.Text_main = Text_main
-
-    def dialogue_one(self, Text_main):
-        self.Text_main.insert("1.0","+++++++++++++++++++++++++++\n")
-        self.Text_main.insert("2.0", "++++++++++++++++++++++++++++++++\n")
-        self.root.after(3000, loading_2)
-    
-    def loading_2(self):
-        self.Text_main.insert("3.0", "+++++++++++++++++++++++++++++++++++++++\n")
-        self.Text_main.insert("4.0", "+++++++++++++++++++=====+++++++++++++++++++++\n")
-        self.root.after(3000, CAN_Alert)
-    
-    def CAN_Alert(self):  
-        self.Text_main.insert("5.0", "==COMMAND ACCESS NETWORK SECURE SERVER==\n")
-        self.Text_main.insert("6.0", "==ALERT+ ACCESS TO THIS STATION HAS BEEN DETECTED, PERMISSION QUERY WILL FOLLOW +ALERT==")
-        root.after(3000, Query_challenge)
-
-    def Query_challenge(self):
-        self.Text_main.insert("7.0", "\nHostile intrusion to this system has been detected, delayanced protocols have been initiated")
-        self.Text_main.insert("8.0", "There are only three allowed users to this computer, their names are:\n")
-        self.root.after(3000, Allowed_users)
-
-    def Allowed_users(self):   
-        self.Text_main.insert("9.0", "[Luis], [Dania], [Zach], please type exactly as presented by the C-A-N\n")
-        self.Text_main.insert("10.0", "Click bypass button to load Bypass....\n")
-        self.root.after(4000, by_pass_lock)
-
-    def by_pass_lock(self, Txt_main):
-        self.Text_main.insert("11.0", "&%^*^(&(^$!@#$%^&*\n")
-        self.Text_main.insert("12.0", "*&*%^#$%&^*&(**&^%$@#%^&**^^$%\n")
-        self.Text_main.insert("13.0", "$%^&*()*&^%$#@%^&*(&^%$#@%^&*(^%$#@!$%^&*(\n")
+    def __init__(self):
+        self = self
 
 
     def GUI_outlay(self, root):
@@ -79,7 +47,6 @@ class GUI_app:
         self.Bttn_bypass.pack()
         self.Bttn_input = tk.Button(master=self.frame_f, text="Start", command= dialogue_one, fg="red", bg="yellow")
         self.Bttn_input.pack()
-        
-        
+
         root.mainloop()
 
