@@ -32,12 +32,12 @@ class GUI_pre_arm1:
         self.Text_main2.pack(padx=25, pady=15)
 
 
-        self.Bttn_one2 = tk.Button(master=self.frame_d2, text="1", width=3, height=1, fg="red", bg="yellow")
+        '''self.Bttn_one2 = tk.Button(master=self.frame_d2, text="1", width=3, height=1, fg="red", bg="yellow")
         self.Bttn_two2 = tk.Button(master=self.frame_d2, text="2", width=3, height=1, fg="red", bg="yellow")
         self.Bttn_three2 = tk.Button(master=self.frame_d2, text="3",width=3, height=1, fg="red", bg="yellow")
         self.Bttn_one2.grid(row=1, column=1)
         self.Bttn_two2.grid(row=1, column=2)
-        self.Bttn_three2.grid(row=1, column=3) 
+        self.Bttn_three2.grid(row=1, column=3''' 
 
         def dialogue_start():
             self.Text_main2.insert("1.0",  "=====WHEN TEXT REACHES BOTTOM OF SCREEN PLEASE SCROLL DOWN==\n")
@@ -152,21 +152,21 @@ class GUI_pre_arm1:
         # through the use of variable names and the entry.get method. 
 
         def command_bttn1():
-            self.ENT_fordata2.insert(0, "1")
+            self.ENT_fordata2.insert(0, 1)
         
         def command_bttn2():
-            self.ENT_fordata2.insert(0, "2")
+            self.ENT_fordata2.insert(0, 2)
 
         def command_bttn3():
-            self.ENT_fordata2.insert(0, "3")
+            self.ENT_fordata2.insert(0, 3)
 
 
         def Actual_algo():
             var_response = self.ENT_fordata2.get()
 
-            code_1 = random.randrange(1,4)
+            code_1 = random.randrange(1,3)
 
-            if int(var_response) == code_1:
+            if  var_response == code_1:
                 self.Text_main2.insert(tk.END, "\n CONGRATS!!!! YOU GUESSED THE FIRST DIGIT")
                 self.window2.destroy()
                 #and then blast off to the next GUI screen

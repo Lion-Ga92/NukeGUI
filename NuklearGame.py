@@ -29,28 +29,34 @@ class RootIntro:
         self.Text_main_ins.pack(padx=1)
 
         def print_inst():
-            self.Text_main_ins.insert("1.0", "Hello and welcome to the Game, in this game you will find a small code cracking sim")
-            self.Text_main_ins.insert(tk.END, "\n To start the game you need to press the 'Continue' button at the botton of the screen")
+            self.Text_main_ins.insert("1.0", "Hello and welcome to the Game, in this game you will find a small code cracking")
+            self.Text_main_ins.insert(tk.END, "\nsim To start the game you need to press the 'Continue' button at the botton")
             self.root.after(1000, print_inst2)
         
         def print_inst2():
-            self.Text_main_ins.insert(tk.END, "\n The screen will then close and you will be taken to the main part of the game" )
-            self.Text_main_ins.insert(tk.END, "\n There you will find another window with two boxes and four button, press the 'start' button")
+            self.Text_main_ins.insert(tk.END, "\n of thhe screen, which will then close and you will be taken to the main game")
+            self.Text_main_ins.insert(tk.END, "\n There you will find another window with two boxes and four button, press the")
             self.root.after(1000, print_inst3)
 
         def print_inst3():
-            self.Text_main_ins.insert(tk.END, "\n From which point you will have the screen scroll the text of the game and it will give more instructions")
-            self.Text_main_ins.insert(tk.END, "\n in this screen you can press close game or the X close button to exit the game before starting")
+            self.Text_main_ins.insert(tk.END, "\n'start' button from which point you will have the screen scroll the text of the")
+            self.Text_main_ins.insert(tk.END, "\n game and just follow the on screen prompts")
             self.root.after(1000, print_inst4)
 
         def print_inst4():
-            self.Text_main_ins.insert(tk.END, "\n please try to follow these instructions properly as i am not that experienced as a developer and things can go insane if you don't")
-            self.Text_main_ins.insert(tk.END, "\n P.S. You will be asked to submit answers to the screen, word answers such as 'do you have rights to use this? need to be answered 'yes/no' exactly")
+            self.Text_main_ins.insert(tk.END, "\n please try to follow these instructions properly as i am not that experienced")
+            self.Text_main_ins.insert(tk.END, "\n as a developer")
+            self.Text_main_ins.insert(tk.END, "\n P.S. You will be asked to submit answers to the screen, word answers such as 'do you")
             self.root.after(1000, print_inst5)
 
         def print_inst5():
-            self.Text_main_ins.insert(tk.END, "\n for the Code cracking element we will have a different mechanic, whic is you will click the allowed number and it will be printed in the entry box.")
-            self.Text_main_ins.insert(tk.END, "\n after which you will click the enter buttonto to see if your answer is correct and the program will then evaluate the answer and give you the next printout")
+            self.Text_main_ins.insert(tk.END, "\n have rights to use this? need to be answered 'yes/no' exactly. for the Code cracking")
+            self.Text_main_ins.insert(tk.END, "\n element we will have a different mechanic, which is you will click the allowed number")
+            self.Text_main_ins.insert(tk.END, "\n and it will be printed in the entry box. after which you will click the enter button ") 
+            self.root.after(100, print_inst6)
+
+        def print_inst6():    
+            self.Text_main_ins.insert(tk.END, "\nto see if your answer is correct and the program will then evaluate the answer and give \nyou the next printout")
             self.Text_main_ins.insert(tk.END, "\n CONTINUE TO MAIN GAME BY PRESSING CONTINUE")
 
         def Continue_game():
