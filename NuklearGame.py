@@ -1,5 +1,6 @@
 import tkinter as tk
 from NukeClasses import GUI_pre_arm1
+from NukeClas2 import GUI_pre_arm2
 import random
 
 
@@ -206,6 +207,8 @@ def launch_order():
     main_game.GUI_outlay(win1=tk.Toplevel())
     sec_Wind = GUI_pre_arm1("win2")
     sec_Wind.GUI2_outlay(window2=tk.Toplevel())
+    pre_arm2 = GUI_pre_arm2("window3")
+    pre_arm2.GUI3_outlay(window3=tk.Toplevel())
 
 launch_order()
 

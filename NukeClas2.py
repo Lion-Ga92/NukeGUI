@@ -34,13 +34,13 @@ class GUI_pre_arm2:
 
 
                 def command_3bttn1():
-                        self.ENT_fordata3.insert(0, 1)
+                        self.ENT_fordata3.insert(0, "1")
         
                 def command_3bttn2():
-                        self.ENT_fordata3.insert(0, 2)
+                        self.ENT_fordata3.insert(0, "2")
 
                 def command_3bttn3():
-                        self.ENT_fordata3.insert(0, 3)
+                        self.ENT_fordata3.insert(0, "3")
                 
                 self.Bttn_one3 = tk.Button(master=self.frame_d3, text="1", width=3, height=1,command=command_3bttn1,fg="red", bg="yellow")
                 self.Bttn_two3 = tk.Button(master=self.frame_d3, text="2", width=3, height=1,command=command_3bttn2, fg="red", bg="yellow")
@@ -84,7 +84,7 @@ class GUI_pre_arm2:
 
                         code_2_try = self.ENT_fordata3.get()
 
-                        if code_2_try == code_2:
+                        if int(code_2_try) == code_2:
                                 self.Text_main3.insert(tk.END, "\n Your code attempt was a 11111111success. Proceeding to next digit")
                                 self.window3.after(1000, destroy_one_3)
 
@@ -101,7 +101,7 @@ class GUI_pre_arm2:
 
                         code_2a_try = self.ENT_fordata3.get()
                         
-                        if code_2a_try == code_2a:
+                        if int(code_2a_try) == code_2a:
                                 self.Text_main3.insert(tk.END, "\n Your code attempt was 2222222222a success. Proceeding to next digit")
                                 self.window3.after(1000, destroy_one_3)
 
@@ -114,11 +114,11 @@ class GUI_pre_arm2:
                 def arm_seq3():
                         self.Text_main3.insert(tk.END, "\n [x], [x], [x]")
                         self.ENT_fordata3.delete(0)
-                        code_2b = random.randrange(1,3)
+                        code_2b = random.randrange(1,)
 
                         code_2b_try = self.ENT_fordata3.get()
                         
-                        if code_2b_try == code_2b:
+                        if int(code_2b_try) == code_2b:
                                 self.Text_main3.insert(tk.END, "\n Your code attempt was33333333333 a success. Proceeding to next digit")
                                 self.window3.after(1000, destroy_one_3)
 
@@ -148,6 +148,3 @@ class GUI_pre_arm2:
                 self.Bttn_input3 = tk.Button(master=self.frame_f3, text="Start", command=dialogue_prearm2,fg="red", bg="yellow")
                 self.Bttn_input3.pack()
                 self.window3.mainloop()
-
-pre_arm2 = GUI_pre_arm2("window3")
-pre_arm2.GUI3_outlay("window3")

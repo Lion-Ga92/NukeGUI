@@ -94,7 +94,7 @@ class GUI_pre_arm1:
             self.window2.after(1000, instructions_5)
         
         def instructions_5():
-            self.Text_main2.insert(tk.END, "\n can enter are either 1, 2 or 3. BE ADVISED THOUGH that this is the system")
+            self.Text_main2.insert(tk.END, "\n can enter are either 1 or 2 . BE ADVISED THOUGH that this is the system")
             self.window2.after(1000, instructions_6)
         
         def instructions_6():
@@ -151,50 +151,95 @@ class GUI_pre_arm1:
         #with commands that will update the Entry box. And the entry box will be used to compare the value  theuser entrs
         # through the use of variable names and the entry.get method. 
 
-        def command_bttn1():
-            self.ENT_fordata2.insert(0, 1)
         
-        def command_bttn2():
-            self.ENT_fordata2.insert(0, 2)
+        #OK I WILL ATTEMPT TO BRING THE SAME ALGO FROM NUKECLAS2 INTO THIS BECAUSE RECURSIVISM SEEMS TO KEEP ME IN AN INF LOOP
+        #AND IT DOES NOT WANT TO LET ME GO
 
-        def command_bttn3():
-            self.ENT_fordata2.insert(0, 3)
+        def command_3bttn1():
+            self.ENT_fordata2.insert(0, "1")
+        
+        def command_3bttn2():
+            self.ENT_fordata2.insert(0, "2")
+
+        #def command_3bttn3():
+            #self.ENT_fordata2.insert(0, "3")
+                
+        self.Bttn_one2 = tk.Button(master=self.frame_d2, text="1", width=3, height=1,command=command_3bttn1,fg="red", bg="yellow")
+        self.Bttn_two2 = tk.Button(master=self.frame_d2, text="2", width=3, height=1,command=command_3bttn2, fg="red", bg="yellow")
+        #self.Bttn_three2 = tk.Button(master=self.frame_d2, text="3",width=3, height=1,command=command_3bttn3, fg="red", bg="yellow")
+        self.Bttn_one2.grid(row=1, column=1)
+        self.Bttn_two2.grid(row=1, column=2)
+        #self.Bttn_three2.grid(row=1, column=3) 
 
 
-        def Actual_algo():
-            var_response = self.ENT_fordata2.get()
+        def arm_seq():
+            self.Text_main2.insert(tk.END, "\n [x], [x], [x]")
 
             code_1 = random.randrange(1,3)
 
-            if  var_response == code_1:
-                self.Text_main2.insert(tk.END, "\n CONGRATS!!!! YOU GUESSED THE FIRST DIGIT")
-                self.window2.destroy()
-                #and then blast off to the next GUI screen
+            code_1_try = self.ENT_fordata2.get()
+
+            if int(code_1_try) == code_1:
+                self.Text_main2.insert(tk.END, "\n Your code attempt was a success. Proceeding to next digit")
+                self.window2.after(1000, destroy_one_2)
 
             else:
-                self.Text_main2.insert(tk.END, "\n I am sorry that is the wrong diging please trying again")
-                self.ENT_fordata2.delete(0, tk.END)
-                self.window2.after(1000, command_Access_dial1)
+                self.Text_main2.insert(tk.END, "\n Your digit attempt was wrong, please try again. \n WARNING UNAUTHORIZED ACCESS SUSPESCTED PLEASE LEAVE THIS STATION\n or TERMINATOR PROTOCOLS WILL BE INIITIATED!!!")
+                self.Text_main2.insert(tk.END, "\n CODE RE-SEQUENCING COMPLETE\n Please enter another number digit: ")
+                self.ENT_fordata2.delete(0)
+                self.window2.after(1000, pull_for_aseq2)
 
+                
+        def arm_seq2():
+            self.Text_main2.insert(tk.END, "\n [x], [x], [x]")
+            code_1a = random.randrange(1,3)
 
+            code_1a_try = self.ENT_fordata2.get()
+                        
+            if int(code_1a_try) == code_1a:
+                self.Text_main2.insert(tk.END, "\n Your code attempt was 2222222222a success. Proceeding to next digit")
+                self.window2.after(1000, destroy_one_3
+                )
 
+            else:
+                self.Text_main2.insert(tk.END, "\n Your digit attempt was wrong, if this is an unauthorized Entry attempt please leave this station NOW!!!\n OR YOU WILL BE EXTEEEEERMINATED!!!")
+                self.Text_main2.insert(tk.END, "\n CODE RE-SEQUENCING COMPLETE! Please enter another number digit: ")
+                self.ENT_fordata2.delete(0)
+                self.window2.after(1000, pull_for_aseq3)
 
+        def arm_seq3():
+            self.Text_main2.insert(tk.END, "\n [x], [x], [x]")
+            self.ENT_fordata2.delete(0)
+            code_1b = random.randrange(1,3)
 
+            code_1b_try = self.ENT_fordata2.get()
+                        
+            if int(code_1b_try) == code_1b:
+                self.Text_main2.insert(tk.END, "\n Your code attempt was33333333333 a success. Proceeding to next digit")
+                self.window2.after(1000, destroy_one_3)
 
-        self.Bttn_one2 = tk.Button(master=self.frame_d2, text="1", width=3, height=1, command=command_bttn1, fg="red", bg="yellow")
-        self.Bttn_two2 = tk.Button(master=self.frame_d2, text="2", width=3, height=1, command=command_bttn2, fg="red", bg="yellow")
-        self.Bttn_three2 = tk.Button(master=self.frame_d2, text="3",width=3, height=1, command=command_bttn3, fg="red", bg="yellow")
-        self.Bttn_one2.grid(row=1, column=1)
-        self.Bttn_two2.grid(row=1, column=2)
-        self.Bttn_three2.grid(row=1, column=3) 
-        
+            else:
+                self.Text_main2.insert(tk.END, "\n Your FINAL digit attempt FAILED!, ACTIVATING SELF DESTRUCT OF LA PELOTA STATION")
+                self.window2.destroy()
+
+    
         self.ENT_fordata2 = tk.Entry(master=self.frame_c2, state="normal", bg="Gainsboro")
         self.ENT_fordata2.pack(padx=50, pady=15)
 
-        self.Ent_bttn2 = tk.Button(master=self.frame_c2,text="Enter",command=Actual_algo, width=6)
+        self.Ent_bttn2 = tk.Button(master=self.frame_c2,text="Enter", command=arm_seq, width=6)
         self.Ent_bttn2.pack(padx=10, pady=10)
+                
+        def pull_for_aseq2():
+            self.Ent_bttn2 = tk.Button(master=self.frame_c2,text="Enter", command=arm_seq2, width=6)
+            self.Ent_bttn2.place(x=150, y=79)
 
-        self.Bttn_bypass2 = tk.Button(master=self.frame_e2, text="bypass", fg="red", bg="yellow")
+
+        def pull_for_aseq3():
+            self.Ent_bttn2a = tk.Button(master=self.frame_c2,text="Enter", command=arm_seq3, width=6)
+            self.Ent_bttn2a.place(x=150, y=79)
+
+
+        self.Bttn_bypass2 = tk.Button(master=self.frame_e2, text="BYPASS N/A", fg="red", bg="yellow")
         self.Bttn_bypass2.pack()
         self.Bttn_input2 = tk.Button(master=self.frame_f2, text="Start", command=dialogue_start, fg="red", bg="yellow")
         self.Bttn_input2.pack()
