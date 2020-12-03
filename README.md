@@ -7,3 +7,7 @@ A short little code cracking game written with Python and the Tkinter GUI frame 
 ###### I started to work on this app on a friday, and by the end of the weekend i was 3/4's of the way done with the main aspect of the game. 
 
 Afterwards i will focus on rewriting the dialogue and clean up the interface. I am on the other hand running into a small issue. Which i am still not sure how to solve. 
+
+
+https://www.dropbox.com/s/5146ofh4f3laj83/Mysterybox.png?dl=0
+
