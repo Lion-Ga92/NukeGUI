@@ -1,5 +1,5 @@
 import tkinter as tk 
-
+import sys 
 import random
 
 class GUI_pre_arm2:
@@ -8,7 +8,7 @@ class GUI_pre_arm2:
                 self.window3 = window3
         
         
-        def GUI3_outlay(self, window2):
+        def GUI3_outlay(self, window3):
                 self.window3= tk.Tk()
                 self.window3.title("NUCLEAR LAUNCH CODES SIMULATOR")
                 self.frame_a3 = tk.Frame(master=self.window3)
@@ -29,15 +29,15 @@ class GUI_pre_arm2:
                 self.lbl_Pelot3 = tk.Label(master=self.frame_a3, text="*LA PELOTA PRE-ARMING SEQUENCE*", fg="white", bg="Dimgray")
                 self.lbl_Pelot3.pack()
         
-                self.Text_main3 = tk.Text(master=self.frame_b3, bg="Orange", fg="Black")
+                self.Text_main3 = tk.Text(master=self.frame_b3, bg="Orange", fg="Black", wrap="word")
                 self.Text_main3.pack(padx=25, pady=15)
 
 
                 def command_3bttn1():
-                        self.ENT_fordata3.insert(0, "1")
+                        self.ENT_fordata3.insert(0,"1")
         
                 def command_3bttn2():
-                        self.ENT_fordata3.insert(0, "2")
+                        self.ENT_fordata3.insert(0,"2")
 
                 def command_3bttn3():
                         self.ENT_fordata3.insert(0, "3")
@@ -80,16 +80,16 @@ class GUI_pre_arm2:
                 def arm_seq():
                         self.Text_main3.insert(tk.END, "\n [x], [x], [x]")
 
-                        code_2 = random.randrange(1,3)
+                        code_2 = random.randrange(1,4)
 
-                        code_2_try = self.ENT_fordata3.get()
+                        code_2_try = int(self.ENT_fordata3.get())
 
-                        if int(code_2_try) == code_2:
-                                self.Text_main3.insert(tk.END, "\n Your code attempt was a 11111111success. Proceeding to next digit")
-                                self.window3.after(1000, destroy_one_3)
+                        if code_2_try == code_2:
+                                self.Text_main3.insert(tk.END, "\n Your code attempt was a success. Proceeding to final stage of pre-arming sequence")
+                                self.window3.after(1000, success_Dial)
 
                         else:
-                                self.Text_main3.insert(tk.END, "\n Your digit attempt was1111111111 wrong, please try again")
+                                self.Text_main3.insert(tk.END, "\n Your attempt has failed, UNAUTHORIZED ACCESS SUSPECTED! IF YOU ARE NOT AUTHORIZED TO USE THIS SYSTEM\n PLEASE EXIT NOW! OR TERMINATOR PROTOCOL WILL BE INITIATE!!!")
                                 self.Text_main3.insert(tk.END, "\n Please enter another number digit: ")
                                 self.ENT_fordata3.delete(0)
                                 self.window3.after(1000, pull_for_aseq2)
@@ -97,36 +97,58 @@ class GUI_pre_arm2:
                 
                 def arm_seq2():
                         self.Text_main3.insert(tk.END, "\n [x], [x], [x]")
-                        code_2a = random.randrange(1,3)
+                        code_2a = random.randrange(1,4)
 
-                        code_2a_try = self.ENT_fordata3.get()
+                        code_2a_try = int(self.ENT_fordata3.get())
                         
-                        if int(code_2a_try) == code_2a:
-                                self.Text_main3.insert(tk.END, "\n Your code attempt was 2222222222a success. Proceeding to next digit")
-                                self.window3.after(1000, destroy_one_3)
+                        if code_2a_try== code_2a:
+                                self.Text_main3.insert(tk.END, "\n Your code attempt was a success. Proceeding to final stage of pre-arming sequence")
+                                self.window3.after(1000, success_Dial)
 
                         else:
-                                self.Text_main3.insert(tk.END, "\n Your digit attempt was2222222222222 wrong, please try again")
+                                self.Text_main3.insert(tk.END, "\n WARNING THIS IS YOUR SECOND FAILED ATTEMPT, PLEASE LEAVE THIS STATION OR YOU WILL BE EXTEEEEERMINATED!!!!!")
                                 self.Text_main3.insert(tk.END, "\n Please enter another number digit: ")
                                 self.ENT_fordata3.delete(0)
                                 self.window3.after(1000, pull_for_aseq3)
 
                 def arm_seq3():
-                        self.Text_main3.insert(tk.END, "\n [x], [x], [x]")
-                        self.ENT_fordata3.delete(0)
-                        code_2b = random.randrange(1,)
+                        code_2b = random.randrange(1,4)
 
-                        code_2b_try = self.ENT_fordata3.get()
+                        code_2b_try = int(self.ENT_fordata3.get())
                         
-                        if int(code_2b_try) == code_2b:
-                                self.Text_main3.insert(tk.END, "\n Your code attempt was33333333333 a success. Proceeding to next digit")
-                                self.window3.after(1000, destroy_one_3)
+                        if code_2b_try == code_2b:
+                                self.Text_main3.insert(tk.END, "\n Your code attempt was a success. Proceeding to final stage of pre-arming sequence")
+                                self.window3.after(1000, Success_Dial)
 
                         else:
-                                self.Text_main3.insert(tk.END, "\n Your digit attempt was333333333333 wrong, please try again")
-                                self.window3.destroy()
+                                self.Text_main3.insert(tk.END, "\n THIS WAS YOUR LAST ATTEMPT! TERMINATOR PROTOCOLS HAVE BEEN INITIATED!\n PREPARE YOURSELF FOR MAXIMUM EXTEEERMINATION!!!")
+                                self.window3.after(4000, Terminator_rick)
 
-        
+                def success_Dial():
+                        self.Text_main3.insert(tk.END, "\n CONGRATULATIONS! YOU ARE READY TO PROCEED TO THE NEXT STAGE OF LA PELOTA PRE-ARMING SEQUENCE\n AS A FRIENDLY REMINDER ANYONE ATTEMPTNG TO ACCESS THIS SYSTEM WIHOUT PERMISSION WILL BE SUBJECTED TO THE TERMINATOR PROTOCOL\n Thanks!!")
+                        self.window3.after(3000, destroy_one_3)
+
+
+                def destroy_one_3():
+                        self.window3.destroy()
+
+
+                def Terminator_rick():
+                        self.Text_main3.insert(tk.END, "\n WARNING! WARNING!! TERMINATOR PROTOCOLS HAVE BEEN INITIATED! UNAUTHORIZED ACCESS TO THIS STATION WILL BE EXTERMINATED!!\n WHILE YOU WAIT FOR EXTERMINATOR SQUAD PLEASE ENJOY THIS PLEASANT SYMPHONY BY MR. RICKY ASTLEY!!")
+                        self.window3.after(2000, Terminator_roll)
+                
+                def Terminator_roll():
+                        self.Text_main3.insert(tk.END, "\n Never gonna give you up....")
+                        self.window3.after(1000, rick_finis)
+
+                def rick_finis():
+                        self.Text_main3.insert(tk.END, "\n Never gonna let you down!!!")
+                        self.window3.after(5000, kill_win)
+
+                def kill_win():
+                        self.window3.destroy()
+
+
                 self.ENT_fordata3 = tk.Entry(master=self.frame_c3, state="normal", bg="Gainsboro")
                 self.ENT_fordata3.pack(padx=50, pady=15)
 
@@ -148,3 +170,4 @@ class GUI_pre_arm2:
                 self.Bttn_input3 = tk.Button(master=self.frame_f3, text="Start", command=dialogue_prearm2,fg="red", bg="yellow")
                 self.Bttn_input3.pack()
                 self.window3.mainloop()
+

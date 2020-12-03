@@ -1,4 +1,5 @@
 import tkinter as tk
+import sys
 
 import random
 
@@ -28,7 +29,7 @@ class GUI_pre_arm1:
         self.lbl_Pelot2 = tk.Label(master=self.frame_a2, text="*LA PELOTA PRE-ARMING SEQUENCE*", fg="white", bg="Dimgray")
         self.lbl_Pelot2.pack()
         
-        self.Text_main2 = tk.Text(master=self.frame_b2, bg="Orange", fg="Black")
+        self.Text_main2 = tk.Text(master=self.frame_b2, bg="Orange", fg="Black", wrap="word")
         self.Text_main2.pack(padx=25, pady=15)
 
 
@@ -71,7 +72,7 @@ class GUI_pre_arm1:
 
         def load3():
             self.Text_main2.insert(tk.END, "============\n")
-            self.window2.after(1000, sys_ready_msg)
+            self.window2.after(5000, sys_ready_msg)
         
         def sys_ready_msg():
             self.Text_main2.insert(tk.END, "SYSTEM READY\n")
@@ -161,15 +162,15 @@ class GUI_pre_arm1:
         def command_3bttn2():
             self.ENT_fordata2.insert(0, "2")
 
-        #def command_3bttn3():
-            #self.ENT_fordata2.insert(0, "3")
+        def command_3bttn3():
+            self.ENT_fordata2.insert(0, "3")
                 
         self.Bttn_one2 = tk.Button(master=self.frame_d2, text="1", width=3, height=1,command=command_3bttn1,fg="red", bg="yellow")
         self.Bttn_two2 = tk.Button(master=self.frame_d2, text="2", width=3, height=1,command=command_3bttn2, fg="red", bg="yellow")
-        #self.Bttn_three2 = tk.Button(master=self.frame_d2, text="3",width=3, height=1,command=command_3bttn3, fg="red", bg="yellow")
+        self.Bttn_three2 = tk.Button(master=self.frame_d2, text="3",width=3, height=1,command=command_3bttn3, fg="red", bg="yellow")
         self.Bttn_one2.grid(row=1, column=1)
         self.Bttn_two2.grid(row=1, column=2)
-        #self.Bttn_three2.grid(row=1, column=3) 
+        self.Bttn_three2.grid(row=1, column=3) 
 
 
         def arm_seq():
@@ -177,11 +178,11 @@ class GUI_pre_arm1:
 
             code_1 = random.randrange(1,3)
 
-            code_1_try = self.ENT_fordata2.get()
+            code_1_try = int(self.ENT_fordata2.get())
 
-            if int(code_1_try) == code_1:
+            if code_1_try == code_1:
                 self.Text_main2.insert(tk.END, "\n Your code attempt was a success. Proceeding to next digit")
-                self.window2.after(1000, destroy_one_2)
+                self.window2.after(1000, transfer_toNxt)
 
             else:
                 self.Text_main2.insert(tk.END, "\n Your digit attempt was wrong, please try again. \n WARNING UNAUTHORIZED ACCESS SUSPESCTED PLEASE LEAVE THIS STATION\n or TERMINATOR PROTOCOLS WILL BE INIITIATED!!!")
@@ -194,12 +195,11 @@ class GUI_pre_arm1:
             self.Text_main2.insert(tk.END, "\n [x], [x], [x]")
             code_1a = random.randrange(1,3)
 
-            code_1a_try = self.ENT_fordata2.get()
+            code_1a_try = int(self.ENT_fordata2.get())
                         
-            if int(code_1a_try) == code_1a:
-                self.Text_main2.insert(tk.END, "\n Your code attempt was 2222222222a success. Proceeding to next digit")
-                self.window2.after(1000, destroy_one_3
-                )
+            if code_1a_try == code_1a:
+                self.Text_main2.insert(tk.END, "\a SUCCESS!!! Proceeding to next digit")
+                self.window2.after(1000, transfer_toNxt)
 
             else:
                 self.Text_main2.insert(tk.END, "\n Your digit attempt was wrong, if this is an unauthorized Entry attempt please leave this station NOW!!!\n OR YOU WILL BE EXTEEEEERMINATED!!!")
@@ -209,19 +209,37 @@ class GUI_pre_arm1:
 
         def arm_seq3():
             self.Text_main2.insert(tk.END, "\n [x], [x], [x]")
-            self.ENT_fordata2.delete(0)
+            #self.ENT_fordata2.delete(0)
             code_1b = random.randrange(1,3)
 
-            code_1b_try = self.ENT_fordata2.get()
+            code_1b_try = int(self.ENT_fordata2.get())
                         
-            if int(code_1b_try) == code_1b:
-                self.Text_main2.insert(tk.END, "\n Your code attempt was33333333333 a success. Proceeding to next digit")
-                self.window2.after(1000, destroy_one_3)
+            if code_1b_try == code_1b:
+                self.Text_main2.insert(tk.END, "\n Your code attempt was a success. Proceeding to next digit")
+                self.window2.after(1000, transfer_toNxt)
 
             else:
                 self.Text_main2.insert(tk.END, "\n Your FINAL digit attempt FAILED!, ACTIVATING SELF DESTRUCT OF LA PELOTA STATION")
-                self.window2.destroy()
+                self.window2.after(1000, Terminator_rick)
 
+        def transfer_toNxt():
+            self.Text_main2.insert(tk.END, "\n Congrats! You have guessed the code for this sequence! Moving on to next stage of La Pelota Pre-arming sequence!")
+            self.window2.after(2000, destroy_one_2)
+
+        def Terminator_rick():
+            self.Text_main3.insert(tk.END, "\n WARNING! WARNING!! TERMINATOR PROTOCOLS HAVE BEEN INITIATED! UNAUTHORIZED ACCESS TO THIS STATION WILL BE EXTERMINATED!!\n WHILE YOU WAIT FOR EXTERMINATOR SQUAD PLEASE ENJOY THIS PLEASANT SYMPHONY BY MR. RICKY ASTLEY!!")
+            self.window2.after(2000, Terminator_roll)
+                
+        def Terminator_roll():
+            self.Text_main3.insert(tk.END, "\n Never gonna give you up....")
+            self.window2.after(1000, rick_finis)
+
+        def rick_finis():
+            self.Text_main3.insert(tk.END, "\n Never gonna let you down!!!")
+            self.window3.after(5000, destroy_one_2)
+
+        def destroy_one_2():
+            self.window2.destroy()
     
         self.ENT_fordata2 = tk.Entry(master=self.frame_c2, state="normal", bg="Gainsboro")
         self.ENT_fordata2.pack(padx=50, pady=15)
@@ -244,6 +262,3 @@ class GUI_pre_arm1:
         self.Bttn_input2 = tk.Button(master=self.frame_f2, text="Start", command=dialogue_start, fg="red", bg="yellow")
         self.Bttn_input2.pack()
         self.window2.mainloop()
-
-#window2 = GUI_pre_arm1("Win2")
-#window2.GUI2_outlay(window2)

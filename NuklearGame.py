@@ -1,7 +1,9 @@
 import tkinter as tk
 from NukeClasses import GUI_pre_arm1
 from NukeClas2 import GUI_pre_arm2
+from NukeClas3 import GUI_pre_ARM3
 import random
+import sys
 
 
 
@@ -18,25 +20,25 @@ class RootIntro:
         self.frame_y = tk.Frame(master=self.root)
         self.frame_x= tk.Frame(master=self.root)
         self.frame_w = tk.Frame(master=self.root)
-        self.frame_z.pack()
-        self.frame_y.pack()
-        self.frame_x.pack()
-        self.frame_w.pack()
+        self.frame_z.pack(fill=tk.BOTH, expand=True)
+        self.frame_y.pack(fill=tk.BOTH, expand=True)
+        self.frame_x.pack(fill=tk.BOTH, expand=True)
+        self.frame_w.pack(fill=tk.BOTH, expand=True)
         self.lbl_name = tk.Label(master=self.frame_z, text="===============Welcome to the Nuketown Code cracking game===============")
         self.lbl_inst_1 = tk.Label(master=self.frame_y, text="please read the instructions below....")
         self.lbl_name.pack()
         self.lbl_inst_1.pack()
-        self.Text_main_ins = tk.Text(master=self.frame_x, bg="Orange", fg="Black")
+        self.Text_main_ins = tk.Text(master=self.frame_x, bg="Orange", fg="Black", wrap="word")
         self.Text_main_ins.pack(padx=1)
 
         def print_inst():
             self.Text_main_ins.insert("1.0", "Hello and welcome to the Game, in this game you will find a small code cracking")
-            self.Text_main_ins.insert(tk.END, "\nsim To start the game you need to press the 'Continue' button at the botton")
+            self.Text_main_ins.insert(tk.END, "\nsimulator.\n To start the game you need to press the 'Continue' button at the botton")
             self.root.after(1000, print_inst2)
         
         def print_inst2():
-            self.Text_main_ins.insert(tk.END, "\n of thhe screen, which will then close and you will be taken to the main game")
-            self.Text_main_ins.insert(tk.END, "\n There you will find another window with two boxes and four button, press the")
+            self.Text_main_ins.insert(tk.END, "\n of thhe screen, which will then close this screen and you will be taken to the main game")
+            self.Text_main_ins.insert(tk.END, "\n There you will find another window with two boxes and four buttons. To play the game press the")
             self.root.after(1000, print_inst3)
 
         def print_inst3():
@@ -64,7 +66,7 @@ class RootIntro:
             self.root.destroy()
         
         def close_game():
-            self.root.destroy()
+            self.root.after(2000, exit())
         
         self.Bttn_cont = tk.Button(master=self.frame_w, text="Continue", command=Continue_game)
         self.Bttn_close = tk.Button(master=self.frame_w, text="close game", command=close_game)
@@ -86,11 +88,11 @@ class GUI_app:
         self.win1= tk.Tk()
         self.win1.title("NUCLEAR LAUNCH CODES SIMULATOR")
         self.frame_a = tk.Frame(master=self.win1)
-        self.frame_a.pack()
+        self.frame_a.pack(fill=tk.BOTH, expand=True)
         self.frame_b = tk.Frame(master=self.win1, bg="red")
-        self.frame_b.pack()
+        self.frame_b.pack(fill=tk.BOTH, expand=True)
         self.frame_c = tk.Frame(master=self.win1, bg="red")
-        self.frame_c.pack()
+        self.frame_c.pack(fill=tk.BOTH, expand=True)
         self.frame_d = tk.Frame(master=self.win1, bg="red")
         self.frame_d.place(x=920, y=878)
         self.frame_e = tk.Frame(master=self.win1, bg="red")
@@ -103,7 +105,7 @@ class GUI_app:
         self.lbl_Pelot = tk.Label(master=self.frame_a, text="*LA PELOTA PRE-ARMING SEQUENCE*", fg="white", bg="Dimgray")
         self.lbl_Pelot.pack()
         
-        self.Text_main = tk.Text(master=self.frame_b, bg="Orange", fg="Black")
+        self.Text_main = tk.Text(master=self.frame_b, bg="Orange", fg="Black", wrap="word")
         self.Text_main.pack(padx=25, pady=15)
 
         self.Bttn_one = tk.Button(master=self.frame_d, text="1", width=3, height=1, fg="red", bg="yellow")
@@ -113,6 +115,7 @@ class GUI_app:
         self.Bttn_two.grid(row=1, column=2)
         self.Bttn_three.grid(row=1, column=3)  
 
+#due to my limits as a dev i had to place the meat of the function in the midts of the GUI tkinter code
         def dialogue_one():
             self.Text_main.insert("1.0","+++++++++++++++++++++++++++\n")
             self.Text_main.insert("2.0", "++++++++++++++++++++++++++++++++\n")
@@ -181,7 +184,7 @@ class GUI_app:
                 self.win1.after(4000, Launch_pre_arm)
 
             else:
-                self.Text_main.insert(tk.END, "fuck off")
+                self.Text_main.insert(tk.END, "ACCESS DENIED!")
             
         def Launch_pre_arm():
             self.win1.destroy()
@@ -209,6 +212,8 @@ def launch_order():
     sec_Wind.GUI2_outlay(window2=tk.Toplevel())
     pre_arm2 = GUI_pre_arm2("window3")
     pre_arm2.GUI3_outlay(window3=tk.Toplevel())
+    third_Win = GUI_pre_ARM3("Window4")
+    third_Win.GUI4_outlay(window4=tk.Toplevel())
 
 launch_order()
 
