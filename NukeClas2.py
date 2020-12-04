@@ -1,5 +1,6 @@
 import tkinter as tk 
 import sys 
+from NukeClas3 import GUI_pre_ARM3
 import random
 
 class GUI_pre_arm2:
@@ -86,7 +87,6 @@ class GUI_pre_arm2:
 
                         if code_2_try == code_2:
                                 self.Text_main3.insert(tk.END, "\n Your code attempt was a success. Proceeding to final stage of pre-arming sequence")
-                                self.window3.after(1000, success_Dial)
 
                         else:
                                 self.Text_main3.insert(tk.END, "\n Your attempt has failed, UNAUTHORIZED ACCESS SUSPECTED! IF YOU ARE NOT AUTHORIZED TO USE THIS SYSTEM\n PLEASE EXIT NOW! OR TERMINATOR PROTOCOL WILL BE INITIATE!!!")
@@ -103,7 +103,6 @@ class GUI_pre_arm2:
                         
                         if code_2a_try== code_2a:
                                 self.Text_main3.insert(tk.END, "\n Your code attempt was a success. Proceeding to final stage of pre-arming sequence")
-                                self.window3.after(1000, success_Dial)
 
                         else:
                                 self.Text_main3.insert(tk.END, "\n WARNING THIS IS YOUR SECOND FAILED ATTEMPT, PLEASE LEAVE THIS STATION OR YOU WILL BE EXTEEEEERMINATED!!!!!")
@@ -118,19 +117,17 @@ class GUI_pre_arm2:
                         
                         if code_2b_try == code_2b:
                                 self.Text_main3.insert(tk.END, "\n Your code attempt was a success. Proceeding to final stage of pre-arming sequence")
-                                self.window3.after(1000, Success_Dial)
 
                         else:
                                 self.Text_main3.insert(tk.END, "\n THIS WAS YOUR LAST ATTEMPT! TERMINATOR PROTOCOLS HAVE BEEN INITIATED!\n PREPARE YOURSELF FOR MAXIMUM EXTEEERMINATION!!!")
                                 self.window3.after(4000, Terminator_rick)
+        
 
-                def success_Dial():
-                        self.Text_main3.insert(tk.END, "\n CONGRATULATIONS! YOU ARE READY TO PROCEED TO THE NEXT STAGE OF LA PELOTA PRE-ARMING SEQUENCE\n AS A FRIENDLY REMINDER ANYONE ATTEMPTNG TO ACCESS THIS SYSTEM WIHOUT PERMISSION WILL BE SUBJECTED TO THE TERMINATOR PROTOCOL\n Thanks!!")
-                        self.window3.after(3000, destroy_one_3)
+                def Continue_4():
+                        third_Win = GUI_pre_ARM3("Window4")
+                        third_Win.GUI4_outlay(window4=tk.Toplevel())
+                        self.window4.destroy()
 
-
-                def destroy_one_3():
-                        self.window3.destroy()
 
 
                 def Terminator_rick():
@@ -164,10 +161,8 @@ class GUI_pre_arm2:
                         self.Ent_bttn3b = tk.Button(master=self.frame_c3,text="Enter", command=arm_seq3, width=6)
                         self.Ent_bttn3b.place(x=150, y=79)
 
-
-                self.Bttn_bypass3 = tk.Button(master=self.frame_e3, text="Bypass", fg="red", bg="yellow")
+                self.Bttn_bypass3 = tk.Button(master=self.frame_e3, text="Bypass", command=Continue_4, fg="red", bg="yellow")
                 self.Bttn_bypass3.pack()
                 self.Bttn_input3 = tk.Button(master=self.frame_f3, text="Start", command=dialogue_prearm2,fg="red", bg="yellow")
                 self.Bttn_input3.pack()
-                self.window3.mainloop()
 

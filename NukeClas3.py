@@ -64,7 +64,7 @@ class GUI_pre_ARM3:
                         self.window4.after(1000, pre_arm_5dia)
 
                 def pre_arm_5dia():
-                        self.Text_main3.insert(tk.END, "\n ===============")
+                        self.Text_main4.insert(tk.END, "\n ===============")
                         self.window3.after(1000, pre_arm_6dia)
 
                 def pre_arm_6dia():
@@ -172,4 +172,3 @@ class GUI_pre_ARM3:
                 self.Bttn_bypass4.pack()
                 self.Bttn_input4 = tk.Button(master=self.frame_f4, text="Start", command=dialogue_prearm4,fg="red", bg="yellow")
                 self.Bttn_input4.pack()
-                self.window4.mainloop()

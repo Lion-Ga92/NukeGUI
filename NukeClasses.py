@@ -1,6 +1,6 @@
 import tkinter as tk
+from NukeClas2 import GUI_pre_arm2
 import sys
-
 import random
 
 class GUI_pre_arm1:
@@ -9,7 +9,7 @@ class GUI_pre_arm1:
         self.window2 = window2
 
     def GUI2_outlay(self, window2):
-        self.window2= tk.Tk()
+        self.window2 = tk.Tk()
         self.window2.title("NUCLEAR LAUNCH CODES SIMULATOR")
         self.frame_a2 = tk.Frame(master=self.window2)
         self.frame_a2.pack()
@@ -31,14 +31,6 @@ class GUI_pre_arm1:
         
         self.Text_main2 = tk.Text(master=self.frame_b2, bg="Orange", fg="Black", wrap="word")
         self.Text_main2.pack(padx=25, pady=15)
-
-
-        '''self.Bttn_one2 = tk.Button(master=self.frame_d2, text="1", width=3, height=1, fg="red", bg="yellow")
-        self.Bttn_two2 = tk.Button(master=self.frame_d2, text="2", width=3, height=1, fg="red", bg="yellow")
-        self.Bttn_three2 = tk.Button(master=self.frame_d2, text="3",width=3, height=1, fg="red", bg="yellow")
-        self.Bttn_one2.grid(row=1, column=1)
-        self.Bttn_two2.grid(row=1, column=2)
-        self.Bttn_three2.grid(row=1, column=3''' 
 
         def dialogue_start():
             self.Text_main2.insert("1.0",  "=====WHEN TEXT REACHES BOTTOM OF SCREEN PLEASE SCROLL DOWN==\n")
@@ -182,7 +174,6 @@ class GUI_pre_arm1:
 
             if code_1_try == code_1:
                 self.Text_main2.insert(tk.END, "\n Your code attempt was a success. Proceeding to next digit")
-                self.window2.after(1000, transfer_toNxt)
 
             else:
                 self.Text_main2.insert(tk.END, "\n Your digit attempt was wrong, please try again. \n WARNING UNAUTHORIZED ACCESS SUSPESCTED PLEASE LEAVE THIS STATION\n or TERMINATOR PROTOCOLS WILL BE INIITIATED!!!")
@@ -199,7 +190,6 @@ class GUI_pre_arm1:
                         
             if code_1a_try == code_1a:
                 self.Text_main2.insert(tk.END, "\a SUCCESS!!! Proceeding to next digit")
-                self.window2.after(1000, transfer_toNxt)
 
             else:
                 self.Text_main2.insert(tk.END, "\n Your digit attempt was wrong, if this is an unauthorized Entry attempt please leave this station NOW!!!\n OR YOU WILL BE EXTEEEEERMINATED!!!")
@@ -216,15 +206,10 @@ class GUI_pre_arm1:
                         
             if code_1b_try == code_1b:
                 self.Text_main2.insert(tk.END, "\n Your code attempt was a success. Proceeding to next digit")
-                self.window2.after(1000, transfer_toNxt)
 
             else:
                 self.Text_main2.insert(tk.END, "\n Your FINAL digit attempt FAILED!, ACTIVATING SELF DESTRUCT OF LA PELOTA STATION")
                 self.window2.after(1000, Terminator_rick)
-
-        def transfer_toNxt():
-            self.Text_main2.insert(tk.END, "\n Congrats! You have guessed the code for this sequence! Moving on to next stage of La Pelota Pre-arming sequence!")
-            self.window2.after(2000, destroy_one_2)
 
         def Terminator_rick():
             self.Text_main3.insert(tk.END, "\n WARNING! WARNING!! TERMINATOR PROTOCOLS HAVE BEEN INITIATED! UNAUTHORIZED ACCESS TO THIS STATION WILL BE EXTERMINATED!!\n WHILE YOU WAIT FOR EXTERMINATOR SQUAD PLEASE ENJOY THIS PLEASANT SYMPHONY BY MR. RICKY ASTLEY!!")
@@ -256,9 +241,13 @@ class GUI_pre_arm1:
             self.Ent_bttn2a = tk.Button(master=self.frame_c2,text="Enter", command=arm_seq3, width=6)
             self.Ent_bttn2a.place(x=150, y=79)
 
+        def transfer_toNXT():
+            pre_arm2 = GUI_pre_arm2("window3")
+            pre_arm2.GUI3_outlay(window3=tk.Toplevel())
+            
 
-        self.Bttn_bypass2 = tk.Button(master=self.frame_e2, text="BYPASS N/A", fg="red", bg="yellow")
+
+        self.Bttn_bypass2 = tk.Button(master=self.frame_e2, text="Cont",command=transfer_toNXT, fg="red", bg="yellow")
         self.Bttn_bypass2.pack()
         self.Bttn_input2 = tk.Button(master=self.frame_f2, text="Start", command=dialogue_start, fg="red", bg="yellow")
         self.Bttn_input2.pack()
-        self.window2.mainloop()
