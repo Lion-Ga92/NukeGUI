@@ -1,11 +1,9 @@
 import tkinter as tk
 from NukeClasses import GUI_pre_arm1
-from NukeClas2 import GUI_pre_arm2
-from NukeClas3 import GUI_pre_ARM3
+#from NukeClas2 import GUI_pre_arm2
+#from NukeClas3 import GUI_pre_ARM3
 import random
 import sys
-
-
 
 class RootIntro:
 

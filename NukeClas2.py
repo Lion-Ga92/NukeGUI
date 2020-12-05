@@ -1,4 +1,4 @@
-import tkinter as tk 
+'''import tkinter as tk 
 import sys 
 from NukeClas3 import GUI_pre_ARM3
 import random
@@ -164,5 +164,5 @@ class GUI_pre_arm2:
                 self.Bttn_bypass3 = tk.Button(master=self.frame_e3, text="Bypass", command=Continue_4, fg="red", bg="yellow")
                 self.Bttn_bypass3.pack()
                 self.Bttn_input3 = tk.Button(master=self.frame_f3, text="Start", command=dialogue_prearm2,fg="red", bg="yellow")
-                self.Bttn_input3.pack()
+                self.Bttn_input3.pack()''''
 

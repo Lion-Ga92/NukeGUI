@@ -1,4 +1,4 @@
-import tkinter as tk 
+'''import tkinter as tk 
 import sys 
 import random
 
@@ -54,7 +54,7 @@ class GUI_pre_ARM3:
 
 
                 def dialogue_prearm4():
-                        self.Text_main4.insert("1.0", "CONGRATULATIONS USER YOUR HAVE GUESSED THE LAST CODE DIGIT CORRECTLY")
+                        self.Text_main4.insert("1.0", "CONGRATULATIONS USER111111111 YOUR HAVE GUESSED THE LAST CODE DIGIT CORRECTLY")
                         self.Text_main4.insert(tk.END, "\n FROM THIS POINT ON YOU HAVE A MAXIMUM OF THREE ATTEMPTS PER DIGIT")
                         self.window4.after(1000, pre_arm_4dia)
 
@@ -171,4 +171,4 @@ class GUI_pre_ARM3:
                 self.Bttn_bypass4 = tk.Button(master=self.frame_e4, text="Bypass", fg="red", bg="yellow")
                 self.Bttn_bypass4.pack()
                 self.Bttn_input4 = tk.Button(master=self.frame_f4, text="Start", command=dialogue_prearm4,fg="red", bg="yellow")
-                self.Bttn_input4.pack()
+                self.Bttn_input4.pack()'''
