@@ -178,7 +178,10 @@ class GUI_pre_arm1:
             if code_1_try == code_1:
                 self.ENT_fordata2.delete(0)
                 self.Text_main2.insert(tk.END, "\n Your 11 code attempt was a success. Proceeding to next digit")
-                self.window2.after(1000, dialogue_prearm2)
+                def pull_for_win():
+                    self.Bttn_bypass2 = tk.Button(master=self.frame_e2, text="Cont", command=dialogue_prearm2, fg="red", bg="yellow")
+                    self.Bttn_bypass2.pack()
+                self.window2.after(1000, pull_for_win)
 
             else:
                 self.Text_main2.insert(tk.END, "\n Your digit11 attempt was wrong, please try again. \n WARNING UNAUTHORIZED ACCESS SUSPESCTED PLEASE LEAVE THIS STATION\n or TERMINATOR PROTOCOLS WILL BE INIITIATED!!!")
@@ -196,7 +199,10 @@ class GUI_pre_arm1:
             if code_1a_try == code_1a:
                 self.ENT_fordata2.delete(0)
                 self.Text_main2.insert(tk.END, "\a SUCCESS!!1111bbbb! Proceeding to next digit")
-                self.window2.after(1000, dialogue_prearm2)
+                def pull_for_win():
+                    self.Bttn_bypass2 = tk.Button(master=self.frame_e2, text="Cont", command=dialogue_prearm2, fg="red", bg="yellow")
+                    self.Bttn_bypass2.pack()
+                self.window2.after(1000, pull_for_win)
 
             else:
                 self.Text_main2.insert(tk.END, "\n Your digit 1bbbbbattempt was wrong, if this is an unauthorized Entry attempt please leave this station NOW!!!\n OR YOU WILL BE EXTEEEEERMINATED!!!")
@@ -213,7 +219,12 @@ class GUI_pre_arm1:
             if code_1b_try == code_1b:
                 self.ENT_fordata2.delete(0)
                 self.Text_main2.insert(tk.END, "\n Your code a1ccccccccttempt was a success. Proceeding to next digit")
-                self.window2.after(1000, dialogue_prearm2)
+                def pull_for_win():
+                    self.Bttn_bypass2 = tk.Button(master=self.frame_e2, text="Cont", command=dialogue_prearm2, fg="red", bg="yellow")
+                    self.Bttn_bypass2.pack()
+                self.window2.after(1000, pull_for_win)
+                
+
 
             else:
                 self.Text_main2.insert(tk.END, "\n Your FINAL digit att1ccccccempt FAILED!, ACTIVATING SELF DESTRUCT OF LA PELOTA STATION")
@@ -236,12 +247,12 @@ class GUI_pre_arm1:
 
 
         def pull_for_aseq2():
-            self.Ent_bttn2 = tk.Button(master=self.frame_c2,text="Enter1111111111", command=arm_seq2, width=6)
+            self.Ent_bttn2 = tk.Button(master=self.frame_c2,text="Enter1bbbbbb11", command=arm_seq2, width=6)
             self.Ent_bttn2.place(x=150, y=79)
 
 
         def pull_for_aseq3():
-            self.Ent_bttn2a = tk.Button(master=self.frame_c2,text="Enter111111111", command=arm_seq3, width=6)
+            self.Ent_bttn2a = tk.Button(master=self.frame_c2,text="Enter111ccccccccc111111", command=arm_seq3, width=6)
             self.Ent_bttn2a.place(x=150, y=79)
 
 
@@ -272,20 +283,44 @@ class GUI_pre_arm1:
         def pre_arm_seq2():
             self.Text_main2.insert(tk.END, "\n CODE SEQUENCIN[dial_prea2]    G COMPLETE:")
             self.Text_main2.insert(tk.END, "\n PLEASE ENTER DIGIT...")
-            self.window2.after(1000, arm_seq2a)
+            
 
+        def pull_4_2a():
+            self.Ent_bttn2a = tk.Button(master=self.frame_c2,text="ENTR2WINer", command=arm_seq2a, width=6)
+            self.Ent_bttn2a.place(x=150, y=7)
+        
+        
+        def command_3bttn1():
+            self.ENT_fordata2.insert(0, "1")
+        
+        def command_3bttn2():
+            self.ENT_fordata2.insert(0, "2")
+
+        def command_3bttn3():
+            self.ENT_fordata2.insert(0, "3")
+            self.window2.after(1000, pull_4_2a)
+                
+        self.Bttn_one2 = tk.Button(master=self.frame_d2, text="1", width=3, height=1,command=command_3bttn1,fg="red", bg="yellow")
+        self.Bttn_two2 = tk.Button(master=self.frame_d2, text="2", width=3, height=1,command=command_3bttn2, fg="red", bg="yellow")
+        self.Bttn_three2 = tk.Button(master=self.frame_d2, text="3",width=3, height=1,command=command_3bttn3, fg="red", bg="yellow")
+        self.Bttn_one2.grid(row=1, column=1)
+        self.Bttn_two2.grid(row=1, column=2)
+        self.Bttn_three2.grid(row=1, column=3) 
 
         def arm_seq2a():
             self.Text_main2.insert(tk.END, "\n [x], [ 2], [x]")
 
             code_2 = random.randrange(1,4)
 
-            code_2_try = int(self.ENT_fordata2.get())
+            code_2_try = self.ENT_fordata2.get()
             
             if code_2_try == code_2:
                 self.ENT_fordata2.delete(0)
                 self.Text_main2.insert(tk.END, "\n Your code222222222222 attempt was a success. Proceeding to final stage of pre-arming sequence")
-                self.window2.after(3000, dialogue_prearm4)
+                def pull_for_win2():
+                    self.Bttn_bypass2 = tk.Button(master=self.frame_e2, text="Cont2a", command=dialogue_prearm4, fg="red", bg="yellow")
+                    self.Bttn_bypass2.pack()
+                self.window2.after(3000, pull_for_win2)
 
             else:
                 self.Text_main2.insert(tk.END, "\n Your attempt has fail2222222222222ed, UNAUTHORIZED ACCESS SUSPECTED! IF YOU ARE NOT AUTHORIZED TO USE THIS SYSTEM\n PLEASE EXIT NOW! OR TERMINATOR PROTOCOL WILL BE INITIATE!!!")
@@ -303,8 +338,11 @@ class GUI_pre_arm1:
             if code_2a_try== code_2a:
                 self.ENT_fordata2.delete(0)
                 self.Text_main2.insert(tk.END, "\n Your code atte2bbbbbbbbbbbmpt was a success. Proceeding to final stage of pre-arming sequence")
-                self.window2.after(3000, dialogue_prearm4)
-
+                def pull_for_win2():
+                    self.Bttn_bypass2 = tk.Button(master=self.frame_e2, text="Cont2b", command=dialogue_prearm4, fg="red", bg="yellow")
+                    self.Bttn_bypass2.pack()
+                self.window2.after(3000, pull_for_win2)
+            
             else:
                 self.Text_main2.insert(tk.END, "\n WARNING THIS IS YOUR SECON2bbbbbbbbbbbD FAILED ATTEMPT, PLEASE LEAVE THIS STATION OR YOU WILL BE EXTEEEEERMINATED!!!!!")
                 self.Text_main2.insert(tk.END, "\n Please enter another numbe2bbbbbbbbbbbbbbr digit: ")
@@ -319,11 +357,19 @@ class GUI_pre_arm1:
             if code_2b_try == code_2b:
                 self.ENT_fordata2.delete(0)
                 self.Text_main2.insert(tk.END, "\n Your code atte2cccccccccccmpt was a success. Proceeding to final stage of pre-arming sequence")
-                self.window2.after(3000, dialogue_prearm4)
+                def pull_for_win2():
+                    self.Bttn_bypass2 = tk.Button(master=self.frame_e2, text="Cont2c", command=dialogue_prearm4, fg="red", bg="yellow")
+                    self.Bttn_bypass2.pack()
+                self.window2.after(3000, pull_for_win2)
 
             else:
                 self.Text_main2.insert(tk.END, "\n THIS WAS YOUR LAST ATTEMPT2cccccccccc! TERMINATOR PROTOCOLS HAVE BEEN INITIATED!\n PREPARE YOURSELF FOR MAXIMUM EXTEEERMINATION!!!")
                 self.window2.after(4000, Terminator_rick)
+        
+        def pull_4_2a():
+            self.Ent_bttn2a = tk.Button(master=self.frame_c2,text="ENTR2WINer", command=arm_seq2a, width=6)
+            self.Ent_bttn2a.place(x=150, y=7)
+
 
 
         def Terminator_rick():
@@ -344,6 +390,7 @@ class GUI_pre_arm1:
         def pull_for_aseq2c():
             self.Ent_bttn2a = tk.Button(master=self.frame_c2,text="Ent22222222er", command=arm_seq2c, width=6)
             self.Ent_bttn2a.place(x=150, y=7)
+
 
 
 
@@ -466,14 +513,12 @@ class GUI_pre_arm1:
 
         self.Ent_bttn2 = tk.Button(master=self.frame_c2,text="Enter",command=arm_seq, width=6)
         self.Ent_bttn2.pack(padx=10, pady=10)
-        self.Bttn_bypass2 = tk.Button(master=self.frame_e2, text="Cont", fg="red", bg="yellow")
-        self.Bttn_bypass2.pack()
         self.Bttn_input2 = tk.Button(master=self.frame_f2, text="Start", command=dialogue_start, fg="red", bg="yellow")
         self.Bttn_input2.pack()
 
 
 
-        
+
 ''' I Ended up accidentally writing up similar Func names for the multiple "Algos" as i am calling the Algorithms that i 
 i wrote for the previous version of the App. Since they were in their own separate files i did not realize that when i copied the
 to this file i would end up with essentially a loop.'''
