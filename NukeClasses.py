@@ -11,12 +11,13 @@ class GUI_pre_arm1:
     def GUI2_outlay(self, window2):
         self.window2 = tk.Tk()
         self.window2.title("NUCLEAR LAUNCH CODES SIMULATOR")
+        self.window2.geometry("1380x1030")
         self.frame_a2 = tk.Frame(master=self.window2)
         self.frame_a2.pack()
         self.frame_b2 = tk.Frame(master=self.window2, bg="red")
         self.frame_b2.pack()
-        self.frame_c2 = tk.Frame(master=self.window2, bg="red")
-        self.frame_c2.pack()
+        self.frame_c2 = tk.Frame(master=self.window2, bg="red", padx="25", pady="45")
+        self.frame_c2.place(x=400, y=870)
         self.frame_d2 = tk.Frame(master=self.window2, bg="red")
         self.frame_d2.place(x=920, y=878)
         self.frame_e2 = tk.Frame(master=self.window2, bg="red")
@@ -30,10 +31,10 @@ class GUI_pre_arm1:
         self.lbl_Pelot2.pack()
         
         self.Text_main2 = tk.Text(master=self.frame_b2, bg="Orange", fg="Black", wrap="word")
-        self.Text_main2.pack(padx=25, pady=15)
+        self.Text_main2.pack(padx="25", pady="15")
 
-        self.ENT_fordata2 = tk.Entry(master=self.frame_c2)
-        self.ENT_fordata2.pack
+        self.ENT_fordata2 = tk.Entry(master=self.frame_c2, state="normal", bg="Gainsboro")
+        self.ENT_fordata2.pack(pady="20")
 
         def dialogue_start():
             self.Text_main2.insert("1.0",  "=====WHEN TEXT REACHES BOTTOM OF SCREEN PLEASE SCROLL DOWN==\n")
@@ -141,7 +142,7 @@ class GUI_pre_arm1:
             self.Text_main2.insert(tk.END, "\n Code sequence complete: ")
             self.Text_main2.insert(tk.END, "\n [x], [x], [x]")
             self.Text_main2.insert(tk.END, "\n Please input your code digit attempt in the box below: ")
-            
+            self.window2.after(500, pull_for_og)
 
         
         #What follows from this point on is the beginning of the Cypher algo, i want to bind the the three buttons 
@@ -168,6 +169,10 @@ class GUI_pre_arm1:
         self.Bttn_two2.grid(row=1, column=2)
         self.Bttn_three2.grid(row=1, column=3) 
 
+        def pull_for_og():
+            self.Ent_bttn2M = tk.Button(master=self.frame_c2,text="Enter",command=arm_seq, width=6, pady="10")
+            self.Ent_bttn2M.place(x=130, y=70)
+
         def arm_seq():
             self.Text_main2.insert(tk.END, "\n [1], [x], [x]")
 
@@ -188,7 +193,6 @@ class GUI_pre_arm1:
                 self.Text_main2.insert(tk.END, "\n CODE RE-SEQUENCING COMPLETE\n Please enter another number digit: ")
                 self.ENT_fordata2.delete(0)
                 self.window2.after(1000, pull_for_aseq2)
-
                 
         def arm_seq2():
             self.Text_main2.insert(tk.END, "\n [ 1b], [x], [x]")
@@ -247,13 +251,13 @@ class GUI_pre_arm1:
 
 
         def pull_for_aseq2():
-            self.Ent_bttn2 = tk.Button(master=self.frame_c2,text="Enter1bbbbbb11", command=arm_seq2, width=6)
-            self.Ent_bttn2.place(x=150, y=79)
+            self.Ent_bttn2a = tk.Button(master=self.frame_c2,text="Enter1bbbbbb11", command=arm_seq2, width=6)
+            self.Ent_bttn2a.place(x=130, y=70)
 
 
         def pull_for_aseq3():
-            self.Ent_bttn2a = tk.Button(master=self.frame_c2,text="Enter111ccccccccc111111", command=arm_seq3, width=6)
-            self.Ent_bttn2a.place(x=150, y=79)
+            self.Ent_bttn2b = tk.Button(master=self.frame_c2,text="Enter111ccccccccc111111", command=arm_seq3, width=6)
+            self.Ent_bttn2b.place(x=130, y=70)
 
 
         # PUTTING A SMALL BREAK COMMENT FOR A LITTLE EXPERIMENT I AM WORKING ON
@@ -283,12 +287,8 @@ class GUI_pre_arm1:
         def pre_arm_seq2():
             self.Text_main2.insert(tk.END, "\n CODE SEQUENCIN[dial_prea2]    G COMPLETE:")
             self.Text_main2.insert(tk.END, "\n PLEASE ENTER DIGIT...")
-            
-
-        def pull_4_2a():
-            self.Ent_bttn2a = tk.Button(master=self.frame_c2,text="ENTR2WINer", command=arm_seq2a, width=6)
-            self.Ent_bttn2a.place(x=150, y=7)
-        
+            self.window2.after(1000, pull_4_2a)
+    
         
         def command_3bttn1():
             self.ENT_fordata2.insert(0, "1")
@@ -298,7 +298,6 @@ class GUI_pre_arm1:
 
         def command_3bttn3():
             self.ENT_fordata2.insert(0, "3")
-            self.window2.after(1000, pull_4_2a)
                 
         self.Bttn_one2 = tk.Button(master=self.frame_d2, text="1", width=3, height=1,command=command_3bttn1,fg="red", bg="yellow")
         self.Bttn_two2 = tk.Button(master=self.frame_d2, text="2", width=3, height=1,command=command_3bttn2, fg="red", bg="yellow")
@@ -306,6 +305,12 @@ class GUI_pre_arm1:
         self.Bttn_one2.grid(row=1, column=1)
         self.Bttn_two2.grid(row=1, column=2)
         self.Bttn_three2.grid(row=1, column=3) 
+
+        def pull_4_2a():
+            self.Ent_bttn2c = tk.Button(master=self.frame_c2,text="ENTR2WINer", command=arm_seq2a, width=6)
+            self.Ent_bttn2c.place(x=130, y=70)
+            self.Ent_bttn2M.destroy()
+
 
         def arm_seq2a():
             self.Text_main2.insert(tk.END, "\n [x], [ 2], [x]")
@@ -318,8 +323,9 @@ class GUI_pre_arm1:
                 self.ENT_fordata2.delete(0)
                 self.Text_main2.insert(tk.END, "\n Your code222222222222 attempt was a success. Proceeding to final stage of pre-arming sequence")
                 def pull_for_win2():
-                    self.Bttn_bypass2 = tk.Button(master=self.frame_e2, text="Cont2a", command=dialogue_prearm4, fg="red", bg="yellow")
-                    self.Bttn_bypass2.pack()
+                    self.Bttn_bypass2.destroy()
+                    self.Bttn_bypass3 = tk.Button(master=self.frame_e2, text="Cont2a", command=dialogue_prearm4, fg="red", bg="yellow")
+                    self.Bttn_bypass3.pack()
                 self.window2.after(3000, pull_for_win2)
 
             else:
@@ -339,8 +345,9 @@ class GUI_pre_arm1:
                 self.ENT_fordata2.delete(0)
                 self.Text_main2.insert(tk.END, "\n Your code atte2bbbbbbbbbbbmpt was a success. Proceeding to final stage of pre-arming sequence")
                 def pull_for_win2():
-                    self.Bttn_bypass2 = tk.Button(master=self.frame_e2, text="Cont2b", command=dialogue_prearm4, fg="red", bg="yellow")
-                    self.Bttn_bypass2.pack()
+                    self.Bttn_bypass2.destroy()
+                    self.Bttn_bypass3 = tk.Button(master=self.frame_e2, text="Cont2a", command=dialogue_prearm4, fg="red", bg="yellow")
+                    self.Bttn_bypass3.pack()
                 self.window2.after(3000, pull_for_win2)
             
             else:
@@ -352,24 +359,21 @@ class GUI_pre_arm1:
         def arm_seq2c():
             self.Text_main2.insert(tk.END, "\n [x], [ 2cccccccccc], [x]")
             code_2b = random.randrange(1,4)
-            code_2b_try = int(self.ENT_fordata3.get())
+            code_2b_try = int(self.ENT_fordata2.get())
                         
             if code_2b_try == code_2b:
                 self.ENT_fordata2.delete(0)
                 self.Text_main2.insert(tk.END, "\n Your code atte2cccccccccccmpt was a success. Proceeding to final stage of pre-arming sequence")
                 def pull_for_win2():
-                    self.Bttn_bypass2 = tk.Button(master=self.frame_e2, text="Cont2c", command=dialogue_prearm4, fg="red", bg="yellow")
-                    self.Bttn_bypass2.pack()
+                    self.Bttn_bypass2.destroy()
+                    self.Bttn_bypass3 = tk.Button(master=self.frame_e2, text="Cont2a", command=dialogue_prearm4, fg="red", bg="yellow")
+                    self.Bttn_bypass3.pack()
                 self.window2.after(3000, pull_for_win2)
 
             else:
                 self.Text_main2.insert(tk.END, "\n THIS WAS YOUR LAST ATTEMPT2cccccccccc! TERMINATOR PROTOCOLS HAVE BEEN INITIATED!\n PREPARE YOURSELF FOR MAXIMUM EXTEEERMINATION!!!")
                 self.window2.after(4000, Terminator_rick)
-        
-        def pull_4_2a():
-            self.Ent_bttn2a = tk.Button(master=self.frame_c2,text="ENTR2WINer", command=arm_seq2a, width=6)
-            self.Ent_bttn2a.place(x=150, y=7)
-
+    
 
 
         def Terminator_rick():
@@ -384,12 +388,12 @@ class GUI_pre_arm1:
             self.window2.destroy()
 
         def pull_for_aseq2b():
-            self.Ent_bttn2a = tk.Button(master=self.frame_c2,text="Ente2222222r", command=arm_seq2b, width=6)
-            self.Ent_bttn2a.place(x=150, y=7)
+            self.Ent_bttn2d = tk.Button(master=self.frame_c2,text="Ente2222222r", command=arm_seq2b, width=6)
+            self.Ent_bttn2d.place(x=130, y=70)
 
         def pull_for_aseq2c():
-            self.Ent_bttn2a = tk.Button(master=self.frame_c2,text="Ent22222222er", command=arm_seq2c, width=6)
-            self.Ent_bttn2a.place(x=150, y=7)
+            self.Ent_bttn2e = tk.Button(master=self.frame_c2,text="Ent22222222er", command=arm_seq2c, width=6)
+            self.Ent_bttn2e.place(x=130, y=70)
 
 
 
@@ -422,7 +426,31 @@ class GUI_pre_arm1:
         def pre_arm_seq4():
             self.Text_main2.insert(tk.END, "\n CODE SEQUENCING COMPLETE:")
             self.Text_main2.insert(tk.END, "\n PLEASE ENTER DIGIT...")
-            self.window2.after(1000, arm_seq3a)
+            self.window2.after(1000, pull_4_3a)
+
+
+
+        def command_3bttn1():
+            self.ENT_fordata2.insert(0, "1")
+        
+        def command_3bttn2():
+            self.ENT_fordata2.insert(0, "2")
+
+        def command_3bttn3():
+            self.ENT_fordata2.insert(0, "3")
+                
+        self.Bttn_one2 = tk.Button(master=self.frame_d2, text="1", width=3, height=1,command=command_3bttn1,fg="red", bg="yellow")
+        self.Bttn_two2 = tk.Button(master=self.frame_d2, text="2", width=3, height=1,command=command_3bttn2, fg="red", bg="yellow")
+        self.Bttn_three2 = tk.Button(master=self.frame_d2, text="3",width=3, height=1,command=command_3bttn3, fg="red", bg="yellow")
+        self.Bttn_one2.grid(row=1, column=1)
+        self.Bttn_two2.grid(row=1, column=2)
+        self.Bttn_three2.grid(row=1, column=3) 
+
+
+        def pull_4_3a():
+            self.Ent_bttn23a = tk.Button(master=self.frame_c2,text="ENTR33WINer", command=arm_seq3a, width=6)
+            self.Ent_bttn23a.place(x=130, y=70)
+            self.Ent_bttn2d.destroy()
 
 
         def arm_seq3a():
@@ -445,7 +473,7 @@ class GUI_pre_arm1:
 
                 
         def arm_seq3b():
-            self.Text_main4.insert(tk.END, "\n [x], [x], [3bbbbbbb]")
+            self.Text_main2.insert(tk.END, "\n [x], [x], [3bbbbbbb]")
             code_3a = random.randrange(1,4)
 
             code_3a_try = int(self.ENT_fordata2.get())
@@ -459,17 +487,17 @@ class GUI_pre_arm1:
                 self.Text_main2.insert(tk.END, "\n WARNING THIS IS YOUR SECO33333ND FAILED ATTEMPT, PLEASE LEAVE THIS STATION OR YOU WILL BE EXTEEEEERMINATED!!!!!")
                 self.Text_main2.insert(tk.END, "\n Please enter another number di33333git: ")
                 self.ENT_fordata2.delete(0)
-                self.window4.after(1000, pull_for_aseq3c)
+                self.window2.after(1000, pull_for_aseq3c)
                             
         def arm_seq3c():
-            self.Text_main4.insert(tk.END, "\n [x], [x], [3cccccc]")
+            self.Text_main2.insert(tk.END, "\n [x], [x], [3cccccc]")
             code_3b = random.randrange(1,4)
             code_3b_try = int(self.ENT_fordata2.get())
             
             if code_3b_try == code_3b:
                 self.ENT_fordata2.delete(0)
                 self.Text_main2.insert(tk.END, "\n Your code attec3333ccccccccccccmpt was a success. Proceeding to final stage of pre-arming sequence")
-                self.window2.after(1000, Success_Dial)
+                self.window2.after(1000, success_Dial)
 
             else:
                 self.Text_main2.insert(tk.END, "\n THIS WAS YOUR LAST 333333333cccccccccccATTEMPT! TERMINATOR PROTOCOLS HAVE BEEN INITIATED!\n PREPARE YOURSELF FOR MAXIMUM EXTEEERMINATION!!!")
@@ -477,7 +505,7 @@ class GUI_pre_arm1:
 
         def success_Dial():
             self.Text_main2.insert(tk.END, "\n CONGRATULATIONS! YOU ARE READY TO PROCEED T33333333Occcccccccccc THE NEXT STAGE OF LA PELOTA PRE-ARMING SEQUENCE\n AS A FRIENDLY REMINDER ANYONE ATTEMPTNG TO ACCESS THIS SYSTEM WIHOUT PERMISSION WILL BE SUBJECTED TO THE TERMINATOR PROTOCOL\n Thanks!!")
-            self.window2.after(3000, destroy_one_3)
+            self.window2.after(3000, launch_skynet)
 
 
         def Terminator_rick3():
@@ -491,28 +519,25 @@ class GUI_pre_arm1:
         def rick_finis3():
             self.window2.destroy()
 
-        self.ENT_fordata2 = tk.Entry(master=self.frame_c2, state="normal", bg="Gainsboro")
-        self.ENT_fordata2.pack(padx=50, pady=15)
+        '''self.ENT_fordata2 = tk.Entry(master=self.frame_c2, state="normal", bg="Gainsboro")
+        self.ENT_fordata2.pack(padx=50, pady=15)'''
 
         def skynet():
             self.Text_main2.insert(tk.END, "\n did ya miss me?")
         
         def launch_skynet():
-            self.Ent_bttn2 = tk.Button(master=self.frame_c2,text="Ent333er", command=Skynet, width=6)
-            self.Ent_bttn2.pack(padx=10, pady=10)
+            self.Ent_bttn2f = tk.Button(master=self.frame_c2,text="Launch", command=skynet, width=6)
+            self.Ent_bttn2f.place(x=130, y=70)
                 
         def pull_for_aseq3b():
-            self.Ent_bttn2 = tk.Button(master=self.frame_c2,text="En33333333ter", command=arm_seq3b, width=6)
-            self.Ent_bttn2.place(x=150, y=79)
+            self.Ent_bttn2f = tk.Button(master=self.frame_c2,text="En33333333ter", command=arm_seq3b, width=6)
+            self.Ent_bttn2f.place(x=130, y=70)
 
 
         def pull_for_aseq3c():
-            self.Ent_bttn2a = tk.Button(master=self.frame_c2,text="Ent33333333er", command=arm_seq3c, width=6)
-            self.Ent_bttn2a.place(x=150, y=7)
+            self.Ent_bttn2h = tk.Button(master=self.frame_c2,text="Ent33333333er", command=arm_seq3c, width=6)
+            self.Ent_bttn2h.place(x=130, y=70)
             
-
-        self.Ent_bttn2 = tk.Button(master=self.frame_c2,text="Enter",command=arm_seq, width=6)
-        self.Ent_bttn2.pack(padx=10, pady=10)
         self.Bttn_input2 = tk.Button(master=self.frame_f2, text="Start", command=dialogue_start, fg="red", bg="yellow")
         self.Bttn_input2.pack()
 
