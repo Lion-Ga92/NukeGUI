@@ -177,7 +177,7 @@ class RootIntro:
 
                     access_rights = (0, 2, 4, 5, 6, 7, 9, 11, 14, 16, 18, 20, 23, 25, 26)
 
-                    if permit_check == "yes" and (access_grant in access_rights):
+                    if (permit_check[0] == "y" or permit_check[0] == "Y") and (access_grant in access_rights):
                         self.Text_main.insert(tk.END, "\nHello and welcome to La Pelota Nuclear Launch systems pre-arm sequence")
                         self.win1.after(4000, Launch_pre_arm)
 

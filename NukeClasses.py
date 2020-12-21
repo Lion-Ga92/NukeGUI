@@ -383,7 +383,7 @@ class GUI_pre_arm1:
             
         def Terminator_roll():
             self.Text_main2.insert(tk.END, "\n Never gonna give you up....")
-            self.window2.after(1000, rick_finis)
+            self.window2.after(5000, rick_finis)
 
         def rick_finis():
             self.window2.destroy()
